@@ -9,6 +9,8 @@ adb shell su -c 'echo 3 > /proc/sys/vm/drop_caches'
 TIME1=$(date +%s%N)
 
 echo
+echo "Testing with $(cat activities.txt | wc -l) apps"
+echo
 cat activities.txt | while read activity; do
 	adb shell am start -W -n $activity
 	echo Finished starting $activity

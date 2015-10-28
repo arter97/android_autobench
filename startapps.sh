@@ -12,7 +12,7 @@ echo
 echo "Testing with $(cat activities.txt | wc -l) apps"
 echo
 cat activities.txt | while read activity; do
-	adb shell am start -W -n $activity
+	adb shell am start -W -n $activity > /dev/null 2>&1
 	echo Finished starting $activity
 done
 
